@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div class="" style="height:100vh;background-color:white;">
+        <!--        <p style="text-align:center;padding-top: 30vh;font-size: 20vh;">Animation</p>-->
+        <p style="text-align:center;padding-top: 30vh;font-size: 20vh;">Animation</p>
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-2">
+                <button style="font-size: 5vh" onclick=" godown()">Start !!!</button>
+            </div>
+            <div class="col-5"></div>
+        </div>
+    </div>
+    <div id="outer" class="" style="height:500vh;background:linear-gradient(0deg, black, lightgrey)">
+        <div class="sticky-top">
+            <div id="horizontal" style="height:100vh;width:500vw;position:absolute;top:0;left:0;background:linear-gradient(90deg, blue, lightblue)">
+                <div class="row">
+                    <div class="col" style="height:100vh;background-image:url('img/1.JPG');">1</div>
+                    <div class="col" style="height:100vh;background-image:url('img/2.JPG');">2</div>
+                    <div class="col" style="height:100vh;background-image:url('img/3.JPG');">3</div>
+                    <div class="col" style="height:100vh;background-image:url('img/4.JPG');">4</div>
+                    <div class="col" style="height:100vh;background-image:url('img/5.JPG');">5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="" style="height:100vh;background-color:coral;"></div>
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!--    新增 jquery 版本以新增 .animate 用法-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function() {
+            var current_pos = $(document).scrollTop();
+            var winw = $(window).width();
+            var outerh = $("#outer").height();
+            var outer_pos = $("#outer").offset().top;
+            console.log(current_pos + "/" + outer_pos);
+            if (current_pos > outer_pos && current_pos <= outer_pos + outerh) {
+                update_left = (-1) * ($("#horizontal").width() - winw) * (current_pos - outer_pos) / outerh;
+                console.log(update_left);
+                $("#horizontal").css("left", update_left);
+            }
+        });
+
+        function godown() {
+            $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 0 * $('#outer').height() / 4
+            }, 800);
+            
+            $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 1 * $('#outer').height() / 4
+            }, 0);
+            $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 1 * $('#outer').height() / 4
+            }, 300);
+            
+            $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 2 * $('#outer').height() / 4
+            }, 0);
+            $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 2 * $('#outer').height() / 4
+            }, 300);
+            
+             $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 3 * $('#outer').height() / 4
+            }, 0);
+            $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 3 * $('#outer').height() / 4
+            }, 300);
+            
+             $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 4 * $('#outer').height() / 4
+            }, 0);
+            $("html, body").animate({
+                scrollTop: $('#outer').offset().top + 4 * $('#outer').height() / 4
+            }, 300);
+        };
+    </script>
+
+</body></html>
